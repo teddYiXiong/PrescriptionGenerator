@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Generator</title>
+    <!-- Load CSS & JS libraries -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Prescription Generator</h1>
+        
+        <!-- Input Box -->
+        <textarea id="prescription-text" placeholder="Paste prescription text here..."></textarea>
+        
+        <!-- Generate Button -->
+        <button id="generate-btn">Generate PDF</button>
+        
+        <!-- Preview (hidden until generated) -->
+        <div id="preview-container" class="hidden">
+            <div class="prescription-template">
+                <div class="header">
+                    <h2>Dr. Smith's Clinic</h2>
+                    <p>123 Medical Ave, City</p>
+                </div>
+                <div id="content-area" class="prescription-content"></div>
+                <div class="footer">
+                    <p>Signature: _________________</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
