@@ -21,20 +21,22 @@ downloadButton.onclick = async function () {
 
 async function downloadFile (inputFile, inputFilename) {
   try {     
-    const url = window.URL.createObjectURL(inputFile);
+    const fileUrl = window.URL.createObjectURL(inputFile);
           
     // Create a temporary anchor element to trigger download
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = inputFilename; // The filename for the downloaded file
-    document.body.appendChild(a);
-    a.click();
-      
-    // Clean up
-    window.URL.revokeObjectURL(url);
-    document.body.removeChild(a);
+    const tempLink = document.createElement('a');
+    tempLink.href = fileUrl;
+    tempLink.target = '_blank'; // Important for iOS
+    tempLink.rel = 'noopener noreferrer';
+    tempLink.download = inputFilename;  //Filename
+    document.body.appendChild(tempLink);
+    tempLink.click();
+
+    // Remove objects created
+    window.URL.revokeObjectURL(fileUrl);
+    document.body.removeChild(tempLink);
       } catch (error) {
     console.error('Download failed:', error);
-    alert('Download failed. Please check console for details.');
+    alert('Download failed in downloadFile function');
       }
 }
