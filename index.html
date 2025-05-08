@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prescription Generator</title>
+  <title>Rx Generator</title>
   
- <!-- IOS support  -->
- <link rel="manifest" href="/manifest.json">
+ <!-- IOS support -->
+ <!-- link rel="manifest" href="/manifest.json">
  <meta name="apple-mobile-web-app-capable" content="yes">
  <meta name="apple-mobile-web-app-status-bar-style" content="black">
- <link rel="apple-touch-icon" href="images/icons/icon-192.png">
-   
+ <link rel="apple-touch-icon" href="images/icons/icon-192.png" -->
+
+ <!-- Libraries --> 
+ <script src="js/pdf-lib.min.js"></script>
+ <script src="js/download.min.js"></script>
+ 
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<button id="generate-btn">Download PDF</button>
+<button id="downloadButton">Download PDF</button>
 
-<script>
+<!-- script>
 //Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -26,7 +30,9 @@ if ('serviceWorker' in navigator) {
     });
   }
 
-</script>
+</script -->
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
