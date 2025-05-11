@@ -57,7 +57,12 @@ testBtn1.onclick = async function() {
     
     const fileUrl = window.URL.createObjectURL(blob);
     debugTxt.textContent = fileUrl;
-    window.open(fileUrl, '_blank');
+    //window.open(fileUrl, '_blank');
+    const tempLink = document.createElement('a');
+    tempLink.href = fileUrl;
+    tempLink.target = '_blank';
+    document.body.appendChild(tempLink);
+    tempLink.click();
   } catch {
     console.error('Fetch Request Failed', error);
     alert('Fetch Failed. Please try again.');
