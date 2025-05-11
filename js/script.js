@@ -61,6 +61,8 @@ testBtn1.onclick = async function() {
     const tempLink = document.createElement('a');
     tempLink.href = fileUrl;
     tempLink.target = '_blank';
+    tempLink.rel = 'noopener noreferrer';
+    tempLink.download = 'Test.pdf';  //Filename
     document.body.appendChild(tempLink);
     tempLink.click();
   } catch {
