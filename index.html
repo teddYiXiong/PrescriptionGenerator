@@ -14,6 +14,7 @@
  <!-- Libraries --> 
  <script src="js/pdf-lib.min.js"></script>
  <script src="js/download.min.js"></script>
+ <script src="js/pdf.min.mjs"></script>
  
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -25,6 +26,32 @@
     <p id="debugTxt">...</p>
   </div>
  <br>
+
+  <div class="inputArea">
+    <div class="inputTextArea">
+      <div class="inputText" style="width: 60%;">
+        <label for="name">Name:</label>
+        <input type="text" name="name"></input>
+        <label for="date">Date:</label>
+        <input type="text" name="date"></input>
+          <br>
+        <label for="between">Additional info:</label>
+          <br>
+        <textarea name="between" rows="3" cols="40"></textarea>
+          <br>
+        <label for="rx">Rx:</label>
+          <br>
+        <textarea name="rx" rows="6" cols="40"></textarea>
+      </div>
+      <div class="formatText" style="width: 25%;">
+        <p>This will be the formatting area</p>
+      </div>
+    </div>
+  <div class="scrollArea">
+    <p>This will be the formatting area</p>
+  </div>
+  </div>
+   <br>
 
   <button id="saveImgButton">Save Image</button>
   <button id="downloadButton">Download PDF</button>

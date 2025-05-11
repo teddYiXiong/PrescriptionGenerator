@@ -5,6 +5,43 @@ body {
     background: #f5f5f5;
 }
 
+/* Text Area */
+
+div.inputTextArea {
+  width: 100%;
+  overflow: auto;
+}
+
+div.inputTextArea div {
+  border: 2px solid;
+  float: left;
+  padding: 5px;
+}
+
+div.inputText label {
+  font-size: 15px;
+}
+
+div.inputText input {
+  width: 30%;
+}
+
+div.inputText textarea {
+  width: 95%;
+}
+
+div.inputArea {
+  width: 100%;
+  overflow: auto;
+}
+
+div.scrollArea {
+  width: 86%;
+  border: 2px solid;
+  padding: 5px;
+}
+
+
 /* Button Styles */
 button {
     background: #007bff;

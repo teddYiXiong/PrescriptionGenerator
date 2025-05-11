@@ -4,8 +4,13 @@ const ASSETS = [
   '/index.html',
   '/css/style.css',
   '/js/script.js',
+  '/js/pdf-lib.min.js',
+  '/js/download.min.js',
+  '/js/pdf.min.mjs',
+  '/js/pdf.worker.min.mjs',
   '/images/rxpad/RxPad_2025.pdf',
-  '/images/icons/icon-192.png'
+  '/images/icons/icon-192.png',
+  
 ];
 
 self.addEventListener('install', (event) => {
