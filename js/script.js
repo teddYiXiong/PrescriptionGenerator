@@ -55,16 +55,7 @@ testBtn1.onclick = async function() {
       }
     const blob = await response.blob();
     
-    const fileUrl = window.URL.createObjectURL(blob);
-    debugTxt.textContent = fileUrl;
-    //window.open(fileUrl, '_blank');
-    const tempLink = document.createElement('a');
-    tempLink.href = fileUrl;
-    tempLink.target = '_blank';
-    tempLink.rel = 'noopener noreferrer';
-    tempLink.download = 'Test.pdf';  //Filename
-    document.body.appendChild(tempLink);
-    tempLink.click();
+    downloadFile(blob, 'Testpdf.pdf');
   } catch {
     console.error('Fetch Request Failed', error);
     alert('Fetch Failed. Please try again.');
