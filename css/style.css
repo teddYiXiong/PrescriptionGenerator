@@ -7,42 +7,43 @@ body {
 
 /* Text Area */
 
-div.inputTextArea {
+div.inputArea { /* Main Block */
   width: 100%;
   overflow: auto;
 }
 
-div.inputTextArea div {
+div.inputTextArea { /* Main Text Block */
+  width: 100%;
+  overflow: auto;
+}
+
+div.inputTextArea div { /* Inner Blocks */
   border: 2px solid;
   float: left;
   padding: 5px;
+  box-sizing: border-box;
 }
 
-div.inputText label {
-  font-size: 15px;
+div.inputText label { /* Labels */
+  font-size: 13px;
 }
 
-div.inputText input {
-  width: 30%;
+div.inputText input { /* Input */
+  font-size: 11px;
 }
 
-div.inputText textarea {
+div.inputText textarea { /* Input textarea */
   width: 95%;
 }
 
-div.inputArea {
-  width: 100%;
-  overflow: auto;
-}
-
-div.scrollArea {
+div.scrollArea { /* Main Scroll Block */
   width: 86%;
   border: 2px solid;
   padding: 5px;
 }
 
 
-/* Button Styles */
+/* Button Area */
 button {
     background: #007bff;
     color: white;
@@ -59,4 +60,9 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+#generatePdfButton {
+    width: 100%;
+    margin-bottom: 4px;
 }

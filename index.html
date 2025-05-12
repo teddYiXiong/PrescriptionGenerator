@@ -29,11 +29,11 @@
 
   <div class="inputArea">
     <div class="inputTextArea">
-      <div class="inputText" style="width: 60%;">
+      <div class="inputText" style="width: 70%;">
         <label for="name">Name:</label>
-        <input type="text" name="name"></input>
+        <input id="nameInput" type="text" name="name" style="width: 30%;"></input>
         <label for="date">Date:</label>
-        <input type="text" name="date"></input>
+        <input id="dateInput" type="text" name="date" style="width: 20%;"></input>
           <br>
         <label for="between">Additional info:</label>
           <br>
@@ -43,16 +43,18 @@
           <br>
         <textarea name="rx" rows="6" cols="40"></textarea>
       </div>
-      <div class="formatText" style="width: 25%;">
+      <div class="formatText" style="width: 30%;">
         <p>This will be the formatting area</p>
       </div>
     </div>
   <div class="scrollArea">
-    <p>This will be the formatting area</p>
+    <p>This will be the scrolling area</p>
   </div>
   </div>
    <br>
 
+  <button id="generatePdfButton">Generate PDF</button>
+   <br>
   <button id="saveImgButton">Save Image</button>
   <button id="downloadButton">Download PDF</button>
 

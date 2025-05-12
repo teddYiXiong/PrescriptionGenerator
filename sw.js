@@ -9,8 +9,7 @@ const ASSETS = [
   '/js/pdf.min.mjs',
   '/js/pdf.worker.min.mjs',
   '/images/rxpad/RxPad_2025.pdf',
-  '/images/icons/icon-192.png',
-  
+  '/images/icons/icon-192.png'
 ];
 
 self.addEventListener('install', (event) => {
