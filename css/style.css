@@ -7,37 +7,49 @@ body {
 
 /* Text Area */
 
-div.inputArea { /* Main Block */
-  width: 100%;
-  overflow: auto;
-}
-
-div.inputTextArea { /* Main Text Block */
-  width: 100%;
-  overflow: auto;
-}
-
-div.inputTextArea div { /* Inner Blocks */
+.formatArea, .textArea, .scrollArea {
   border: 2px solid;
-  float: left;
   padding: 5px;
   box-sizing: border-box;
 }
 
-div.inputText label { /* Labels */
+div.textArea label {
   font-size: 13px;
 }
 
-div.inputText input { /* Input */
+div.textArea input, textarea {
   font-size: 11px;
 }
 
-div.inputText textarea { /* Input textarea */
+div.textArea textarea {
   width: 95%;
 }
 
-div.scrollArea { /* Main Scroll Block */
-  width: 86%;
+#nameInput {
+  width: 70%;
+}
+
+#dateInput {
+  width: 40%
+}
+
+#dateButton {
+    background: #009a12;
+    color: white;
+    font-size: 11px;
+    border: none;
+    padding: 2px 8px;
+    margin: auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dateButton:hover {
+    background: #008800;
+}
+
+div.scrollArea {
+  width: 100%;
   border: 2px solid;
   padding: 5px;
 }

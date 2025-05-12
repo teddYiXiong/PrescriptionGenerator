@@ -27,36 +27,37 @@
   </div>
  <br>
 
-  <div class="inputArea">
-    <div class="inputTextArea">
-      <div class="inputText" style="width: 70%;">
-        <label for="name">Name:</label>
-        <input id="nameInput" type="text" name="name" style="width: 30%;"></input>
-        <label for="date">Date:</label>
-        <input id="dateInput" type="text" name="date" style="width: 20%;"></input>
-          <br>
-        <label for="between">Additional info:</label>
-          <br>
-        <textarea name="between" rows="3" cols="40"></textarea>
-          <br>
-        <label for="rx">Rx:</label>
-          <br>
-        <textarea name="rx" rows="6" cols="40"></textarea>
-      </div>
-      <div class="formatText" style="width: 30%;">
+  <div class="formatArea">
         <p>This will be the formatting area</p>
-      </div>
-    </div>
+  </div>
+
+  <div class="textArea">
+      <label for="name">Name:</label>
+      <input id="nameInput" type="text" name="name"></input>
+        <br>
+      <label for="date">Date:</label>
+      <input id="dateInput" type="text" name="date"></input>
+      <button id="dateButton">Today</button>
+        <br>
+      <label for="between">Additional info:</label>
+        <br>
+      <textarea name="between" rows="4" cols="40"></textarea>
+        <br>
+      <label for="rx">Rx:</label>
+        <br>
+      <textarea name="rx" rows="7" cols="40"></textarea>
+  </div>
+
   <div class="scrollArea">
     <p>This will be the scrolling area</p>
   </div>
+   <br>
+  <div class="buttonArea">
+    <button id="generatePdfButton">Generate PDF</button>
+     <br>
+    <button id="saveImgButton">Save Image</button>
+    <button id="downloadButton">Download PDF</button>
   </div>
-   <br>
-
-  <button id="generatePdfButton">Generate PDF</button>
-   <br>
-  <button id="saveImgButton">Save Image</button>
-  <button id="downloadButton">Download PDF</button>
 
 <script>
 //Service Worker
