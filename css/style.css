@@ -7,7 +7,7 @@ body {
 
 /* Text Area */
 
-.formatArea, .textArea, .scrollArea {
+div.formatArea, div.textArea, div.scrollArea {
   border: 2px solid;
   padding: 5px;
   box-sizing: border-box;
@@ -19,6 +19,7 @@ div.textArea label {
 
 div.textArea input, textarea {
   font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 div.textArea textarea {
@@ -30,7 +31,7 @@ div.textArea textarea {
 }
 
 #dateInput {
-  width: 40%
+  width: 40%;
 }
 
 #dateButton {

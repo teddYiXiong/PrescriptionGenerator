@@ -1,6 +1,11 @@
 /*----Initialize variables and Libraries----*/
+const generateButton = document.getElementById('generateButton');
 const saveImgButton = document.getElementById('saveImgButton');
 const downloadButton = document.getElementById('downloadButton');
+const nameInput = document.getElementById('nameInput');
+const dateInput = document.getElementById('dateInput');
+const betweenInput = document.getElementById('betweenInput');
+const rxInput = document.getElementById('rxInput');
 const testBtn1 = document.getElementById('testBtn1'); //Debug
 const testBtn2 = document.getElementById('testBtn2'); //Debug
 testBtn1.textContent = "Test Link"; //Debug
@@ -10,15 +15,13 @@ debugTxt.textContent = "Hello";
 
 /*----- Buttons -----*/
 
-saveImgButton.onclick = async function () {
- try {  
-    debugTxt.textContent = 'Save Button Clicked';
-    const blob = await generatePdf();
-    savePdfToPhotos(blob);
-  } catch {
-    console.error('Failed to save image', error);
-    alert('Failed to save image.');
-  }
+generateButton.onclick = function () {
+  debugTxt.textContent = "Generate clicked: ";
+  let text = new Template(nameInput.value, dateInput.value, betweenInput.value, rxInput.value);
+  debugTxt.textContent += `${text.name}, ${text.date}, ${text.between}, ${text.rx}`;
+}
+
+saveImgButton.onclick = async function () { //Deactivated
 }
 
 downloadButton.onclick = async function () {
@@ -30,6 +33,26 @@ downloadButton.onclick = async function () {
     console.error('generatePdf() failed', error);
     alert('Could not generate PDF.');
   }
+}
+
+/*----- Generate PDF -----*/
+
+function Template (name, date, between, rx) {
+  this.name = name;
+  this.date = date;
+  this.between = between;
+  this.rx = rx;
+}
+
+function findFormatTags (text) {
+  //search for tags '{{', '{', '}}'
+  return text;
+}
+
+function addFormat (text) {
+  //identify format at index values
+  //replace index values with format
+  return text;
 }
 
 async function generatePdf () {
@@ -49,99 +72,6 @@ async function generatePdf () {
 }
 
 /*----- Save File -----*/
-
-async function savePdfToPhotos(pdfUrlOrData) {
-  try {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/pdf.worker.min.mjs';
-    debugTxt.textContent += ", Function 1 check";
-    
-    // Load the PDF
-    let loadingTask;
-    if (pdfUrlOrData instanceof Uint8Array) {
-      loadingTask = pdfjsLib.getDocument({data: pdfUrlOrData});
-    } else {
-      loadingTask = pdfjsLib.getDocument(pdfUrlOrData);
-    }
-    
-    const pdf = await loadingTask.promise;
-    
-    // Get the first page (or loop through all pages if you want)
-    const page = await pdf.getPage(1);
-    
-    // Set scale for good quality
-    const viewport = page.getViewport({scale: 2.0});
-    
-    // Create canvas for rendering
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-    
-    // Render PDF page to canvas
-    await page.render({
-      canvasContext: context,
-      viewport: viewport
-    }).promise;
-    
-    // Convert canvas to image data
-    canvas.toBlob(async (blob) => {
-      try {
-        // For iOS, we need to use the WebKit-specific API
-        if (window.webkit && window.webkit.messageHandlers) {
-          // This is for iOS webview apps - needs native bridge
-          console.log("Need native implementation for iOS webview");
-        } else {
-          // For Safari on iOS
-          const imageData = await canvas.toDataURL('image/jpeg');
-          await saveToPhotos(imageData);
-        }
-      } catch (error) {
-        console.error("Error saving to photos:", error);
-        fallbackSave(blob);
-      }
-    }, 'image/jpeg', 0.95);
-    
-  } catch (error) {
-    console.error("Error processing PDF:", error);
-  }
-}
-
-async function saveToPhotos(imageData) {
-  // For iOS Safari, we can use the share API as a workaround
-  if (navigator.share) {
-    try {
-      // Convert data URL to blob
-      const blob = await (await fetch(imageData)).blob();
-      const file = new File([blob], 'image.jpg', {type: 'image/jpeg'});
-      
-      await navigator.share({
-        files: [file],
-        title: 'Save to Photos'
-      });
-    } catch (error) {
-      console.error("Error sharing:", error);
-      fallbackSave(imageData);
-    }
-  } else {
-    // Fallback for non-share API browsers
-    fallbackSave(imageData);
-  }
-}
-
-function fallbackSave(blobOrData) {
-  // Create download link
-  const a = document.createElement('a');
-  if (blobOrData instanceof Blob) {
-    a.href = URL.createObjectURL(blobOrData);
-  } else {
-    a.href = blobOrData;
-  }
-  a.download = 'image.jpg';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
 
 async function downloadFile (inputFile, inputFilename) {
   try {     
