@@ -1,11 +1,13 @@
 /*----Initialize variables and Libraries----*/
-const generateButton = document.getElementById('generateButton');
-const saveImgButton = document.getElementById('saveImgButton');
-const downloadButton = document.getElementById('downloadButton');
 const nameInput = document.getElementById('nameInput');
 const dateInput = document.getElementById('dateInput');
 const betweenInput = document.getElementById('betweenInput');
 const rxInput = document.getElementById('rxInput');
+
+const generateButton = document.getElementById('generateButton');
+const saveImgButton = document.getElementById('saveImgButton');
+const downloadButton = document.getElementById('downloadButton');
+
 const testBtn1 = document.getElementById('testBtn1'); //Debug
 const testBtn2 = document.getElementById('testBtn2'); //Debug
 testBtn1.textContent = "Test Link"; //Debug
@@ -57,7 +59,7 @@ function addFormat (text) {
 
 async function generatePdf () {
   try {  
-    const response = await fetch('images/rxpad/RxPad_2025.pdf');
+    const response = await fetch('/RxPad_2025.pdf');
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -82,7 +84,7 @@ async function downloadFile (inputFile, inputFilename) {
     tempLink.href = fileUrl;
     tempLink.target = '_blank'; // Important for iOS
     tempLink.rel = 'noopener noreferrer';
-    //tempLink.download = inputFilename;  //Filename
+    tempLink.download = inputFilename;  //Filename
     console.log(inputFilename);
     document.body.appendChild(tempLink);
     tempLink.click();
@@ -102,7 +104,7 @@ testBtn1.onclick = async function() {
   try {  
     debugTxt.textContent = "TestBtn1";
 
-    const response = await fetch('images/rxpad/RxPad_2025.pdf');
+    const response = await fetch('/RxPad_2025.pdf');
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

@@ -2,13 +2,9 @@ const CACHE_NAME = 'testcode-v1';
 const ASSETS = [
   '/',
   '/index.html',
-  '/css/style.css',
-  '/js/script.js',
-  '/js/pdf-lib.min.js',
-  '/js/download.min.js',
-  '/js/pdf.min.mjs',
-  '/js/pdf.worker.min.mjs',
-  '/images/rxpad/RxPad_2025.pdf',
+  '/RxPad_2025.pdf',
+  '/src/style.css',
+  '/src/script.js',
   '/images/icons/icon-192.png'
 ];
 
