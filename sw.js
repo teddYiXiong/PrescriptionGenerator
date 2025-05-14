@@ -5,7 +5,7 @@ const ASSETS = [
   '/RxPad_2025.pdf',
   '/src/style.css',
   '/src/script.js',
-  '/images/icons/icon-192.png'
+  '/icons/icon-192.png'
 ];
 
 self.addEventListener('install', (event) => {

@@ -1,4 +1,6 @@
 /*----Initialize variables and Libraries----*/
+//const { PDFDocument } = PDFLib;
+
 const nameInput = document.getElementById('nameInput');
 const dateInput = document.getElementById('dateInput');
 const betweenInput = document.getElementById('betweenInput');
@@ -11,7 +13,7 @@ const downloadButton = document.getElementById('downloadButton');
 const testBtn1 = document.getElementById('testBtn1'); //Debug
 const testBtn2 = document.getElementById('testBtn2'); //Debug
 testBtn1.textContent = "Test Link"; //Debug
-testBtn2.textContent = "Test Button 2"; //Debug
+testBtn2.textContent = "Add text"; //Debug
 const debugTxtElement = document.getElementById('debugTxt'); //Debug
 debugTxt.textContent = "Hello";
 
@@ -21,9 +23,6 @@ generateButton.onclick = function () {
   debugTxt.textContent = "Generate clicked: ";
   let text = new Template(nameInput.value, dateInput.value, betweenInput.value, rxInput.value);
   debugTxt.textContent += `${text.name}, ${text.date}, ${text.between}, ${text.rx}`;
-}
-
-saveImgButton.onclick = async function () { //Deactivated
 }
 
 downloadButton.onclick = async function () {
@@ -118,5 +117,5 @@ testBtn1.onclick = async function() {
 }
 
 testBtn2.onclick = function() {
-  debugTxt.textContent = "TestBtn2";
+
 }

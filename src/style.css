@@ -71,11 +71,17 @@ button:hover {
     background: #0056b3;
 }
 
-.hidden {
-    display: none;
-}
-
 #generatePdfButton {
     width: 100%;
     margin-bottom: 4px;
+}
+
+/* Canvas Area*/
+
+canvas {
+  border: 1px solid;
+}
+
+.hidden {
+    display: none;
 }

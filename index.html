@@ -9,19 +9,19 @@
  <link rel="manifest" href="/manifest.json">
  <meta name="apple-mobile-web-app-capable" content="yes">
  <meta name="apple-mobile-web-app-status-bar-style" content="black">
- <link rel="apple-touch-icon" href="/images/icons/icon-192.png" -->
+ <link rel="apple-touch-icon" href="/icons/icon-192.png" -->
 
  <!-- Libraries --> 
  <script src="/lib/pdf-lib.min.js"></script>
  <script src="/lib/download.min.js"></script>
- <script src="/lib/pdf.min.mjs"></script>
+ <script src="/lib/pdf.mjs" type="module"></script>
  
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
   <!-- Debug Features -->
   <div>
-    <button id="testBtn1">Test Button 1</button>
+    <!--button id="testBtn1">Test Button 1</button-->
     <button id="testBtn2">Test Button 2</button>
     <p id="debugTxt">...</p>
   </div>
@@ -58,7 +58,9 @@
     <button id="saveImgButton">Save Image</button>
     <button id="downloadButton">Download PDF</button>
   </div>
+  <canvas id="pdfCanvas"></canvas>
 
+ <!-- Setup scripts --> 
 <script>
 //Service Worker
 if ('serviceWorker' in navigator) {
@@ -70,7 +72,9 @@ if ('serviceWorker' in navigator) {
   }
 
 </script>
+<script src="/src/index.js" type="module"></script>
 
+ <!-- Main script --> 
 <script src="/src/script.js"></script>
 
 </body>
