@@ -6,22 +6,22 @@
   <title>Rx Generator</title>
   
  <!-- IOS support -->
- <link rel="manifest" href="/manifest.json">
+ <link rel="manifest" href="manifest.json">
  <meta name="apple-mobile-web-app-capable" content="yes">
  <meta name="apple-mobile-web-app-status-bar-style" content="black">
- <link rel="apple-touch-icon" href="/icons/icon-192.png" -->
+ <link rel="apple-touch-icon" href="icons/icon-192.png" -->
 
  <!-- Libraries --> 
- <script src="/lib/pdf-lib.min.js"></script>
- <script src="/lib/download.min.js"></script>
- <script src="/lib/pdf.mjs" type="module"></script>
+ <script src="lib/pdf-lib.min.js"></script>
+ <script src="lib/download.min.js"></script>
+ <script src="lib/pdf.mjs" type="module"></script>
  
-  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
   <!-- Debug Features -->
   <div>
-    <!--button id="testBtn1">Test Button 1</button-->
+    <button id="testBtn1">Test Button 1</button>
     <button id="testBtn2">Test Button 2</button>
     <p id="debugTxt">...</p>
   </div>
@@ -65,17 +65,17 @@
 //Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register('sw.js')
         .then(registration => console.log('SW registered!'))
         .catch(err => console.log('SW registration failed: ', err));
     });
   }
 
 </script>
-<!--script src="/src/index.js" type="module"></script>
+<script src="src/index.js" type="module"></script>
 
  <!-- Main script --> 
-<script src="/src/script.js"></script>
+<script src="src/script.js"></script>
 
 </body>
 </html>

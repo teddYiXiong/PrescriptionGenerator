@@ -16,7 +16,7 @@
 
     async function modifyPdf() {
       // Fetch an existing PDF document
-      const url = '/RxPad_2025.pdf'
+      const url = 'RxPad_2025.pdf'
   		const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
 
       // Load a PDFDocument from the existing PDF bytes

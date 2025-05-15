@@ -1,8 +1,8 @@
 //This file is for setting up the pdf.js library
 const canvas = document.getElementById('pdfCanvas');
-const pdfUrl = '/RxPad_2025.pdf';
+const pdfUrl = 'RxPad_2025.pdf';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = '/lib/pdf.worker.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdf.worker.mjs';
 
 pdfjsLib.getDocument(pdfUrl).promise.then(function (pdfDoc) { 
   pdfDoc.getPage(1).then(function (page) { 

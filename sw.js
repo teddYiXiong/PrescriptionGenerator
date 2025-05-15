@@ -1,11 +1,11 @@
 const CACHE_NAME = 'testcode-v1';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/RxPad_2025.pdf',
-  '/src/style.css',
-  '/src/script.js',
-  '/icons/icon-192.png'
+  './',
+  'index.html',
+  'RxPad_2025.pdf',
+  'src/style.css',
+  'src/script.js',
+  'icons/icon-192.png'
 ];
 
 self.addEventListener('install', (event) => {

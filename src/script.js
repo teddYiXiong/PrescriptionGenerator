@@ -58,7 +58,7 @@ function addFormat (text) {
 
 async function generatePdf () {
   try {  
-    const response = await fetch('/RxPad_2025.pdf');
+    const response = await fetch('RxPad_2025.pdf');
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -103,7 +103,7 @@ testBtn1.onclick = async function() {
   try {  
     debugTxt.textContent = "TestBtn1";
 
-    const response = await fetch('/RxPad_2025.pdf');
+    const response = await fetch('RxPad_2025.pdf');
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
