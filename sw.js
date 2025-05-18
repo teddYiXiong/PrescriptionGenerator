@@ -4,6 +4,7 @@ const Assets = [
   'index.html',
   'src/style.css',
   'src/script.js',
+  'src/index.js',
   'RxPad_2025.pdf',
   'lib/pdf-lib.min.js',
   'lib/pdf.mjs',
@@ -27,6 +28,7 @@ const retrieveFromCache = async (request) => {
 
 self.addEventListener('install', (event) => {
   event.waitUntil(addToCache(Assets));
+  console.log('Assets have been added');
 });
 
 self.addEventListener('fetch', (event) => {
