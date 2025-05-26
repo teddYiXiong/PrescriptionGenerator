@@ -1,5 +1,5 @@
 /*----Initialize variables and Libraries----*/
-//const { PDFDocument } = PDFLib;
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdf.worker.mjs';
 
 const nameInput = document.getElementById('nameInput');
 const dateInput = document.getElementById('dateInput');
@@ -7,13 +7,14 @@ const betweenInput = document.getElementById('betweenInput');
 const rxInput = document.getElementById('rxInput');
 
 const generateButton = document.getElementById('generateButton');
-const saveImgButton = document.getElementById('saveImgButton');
 const downloadButton = document.getElementById('downloadButton');
+
+const pdfCanvas = document.getElementById('pdfCanvas');
 
 const testBtn1 = document.getElementById('testBtn1'); //Debug
 const testBtn2 = document.getElementById('testBtn2'); //Debug
 testBtn1.textContent = "Test Link"; //Debug
-testBtn2.textContent = "Add text"; //Debug
+testBtn2.textContent = "Display PDF"; //Debug
 const debugTxtElement = document.getElementById('debugTxt'); //Debug
 debugTxt.textContent = "Hello";
 
@@ -45,17 +46,6 @@ function Template (name, date, between, rx) {
   this.rx = rx;
 }
 
-function findFormatTags (text) {
-  //search for tags '{{', '{', '}}'
-  return text;
-}
-
-function addFormat (text) {
-  //identify format at index values
-  //replace index values with format
-  return text;
-}
-
 async function generatePdf () {
   try {  
     const response = await fetch('RxPad_2025.pdf');
@@ -70,6 +60,33 @@ async function generatePdf () {
     console.error('Fetch Request Failed', error);
     alert('Download failed. Please try again.');
   }
+}
+
+/*----- Display PDF -----*/
+
+const displayPdf = async (pdfUrl) => {
+  pdfjsLib.getDocument(pdfUrl).promise.then(function (pdfDoc) { 
+  pdfDoc.getPage(1).then(function (page) { 
+
+    debugTxt.textContent += ", displayPdf() found page: " + pdfUrl;
+    console.log("displayPdf() found page: " + pdfUrl);
+
+    const viewport = page.getViewport({ scale: 1 });
+    pdfCanvas.width = viewport.width;
+    pdfCanvas.height = viewport.height;
+
+    const ctx = pdfCanvas.getContext('2d');
+    const renderContext = {
+      canvasContext: ctx,
+      viewport: viewport,
+    };
+
+    page.render(renderContext);
+  });
+}).catch(function (error) {
+  console.log('Error loading pdf');
+  document.getElementById('debugTxt').textContent = 'Error loading pdf';
+});
 }
 
 /*----- Save File -----*/
@@ -116,6 +133,15 @@ testBtn1.onclick = async function() {
   }
 }
 
-testBtn2.onclick = function() {
-
-}
+testBtn2.addEventListener('click', async () => {
+  try {
+    debugTxt.textContent = "DisplayPdf clicked";
+    console.log("DisplayPdf clicked");
+    const pdfUrl = "RxPad_2025.pdf";
+    await displayPdf(pdfUrl);
+  }
+  catch {
+    debugTxt.textContent += ", Failed to display pdf";
+    console.log("failed to display pdf");
+  }
+});

@@ -12,7 +12,7 @@
  <link rel="apple-touch-icon" href="icons/icon-192.png" -->
 
  <!-- Libraries --> 
- <script src="lib/pdf-lib.min.js"></script>
+ <script src="lib/pdf-lib.min.js" type="module"></script>
  <script src="lib/download.min.js"></script>
  <script src="lib/pdf.mjs" type="module"></script>
  
@@ -55,7 +55,7 @@
   <div class="buttonArea">
     <button id="generateButton">Generate PDF</button>
      <br>
-    <button id="saveImgButton">Save Image</button>
+    <!--button id="saveImgButton">Save Image</button-->
     <button id="downloadButton">Download PDF</button>
   </div>
   <canvas id="pdfCanvas"></canvas>
@@ -85,10 +85,10 @@ const registerServiceWorker = async () => {
   }
 }
 </script>
-<script src="src/index.js" type="module"></script>
+<!--script src="src/index.js" type="module"></script-->
 
  <!-- Main script --> 
-<script src="src/script.js"></script>
+<script src="src/script.js" type="module"></script>
 
 </body>
 </html>
