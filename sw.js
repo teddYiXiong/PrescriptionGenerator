@@ -1,4 +1,4 @@
-const CacheName = 'beta-v0.65';
+const CacheName = 'beta-v0.6';
 const Assets = [
   './',
   'index.html',
