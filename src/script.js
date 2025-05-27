@@ -64,7 +64,11 @@ async function generatePdf () {
 
 /*----- Display PDF -----*/
 
-const displayPdf = async (pdfUrl) => {
+async function displayPdf (pdfUrl) {
+
+  debugTxt.textContent += ", inside displayPdf()";
+  console.log("inside displayPdf()");
+
   pdfjsLib.getDocument(pdfUrl).promise.then(function (pdfDoc) { 
   pdfDoc.getPage(1).then(function (page) { 
 
@@ -84,8 +88,8 @@ const displayPdf = async (pdfUrl) => {
     page.render(renderContext);
   });
 }).catch(function (error) {
-  console.log('Error loading pdf');
-  document.getElementById('debugTxt').textContent = 'Error loading pdf';
+  console.log('Error loading pdf: ' + error);
+  document.getElementById('debugTxt').textContent = 'Error loading pdf: ' + error.message;
 });
 }
 
@@ -140,8 +144,8 @@ testBtn2.addEventListener('click', async () => {
     const pdfUrl = "RxPad_2025.pdf";
     await displayPdf(pdfUrl);
   }
-  catch {
-    debugTxt.textContent += ", Failed to display pdf";
-    console.log("failed to display pdf");
+  catch (error) {
+    debugTxt.textContent += ", Failed to display pdf: " + error.message;
+    console.log("failed to display pdf:" + error);
   }
 });
