@@ -72,8 +72,8 @@ async function displayPdf (pdfUrl) {
   pdfjsLib.getDocument(pdfUrl).promise.then(function (pdfDoc) { 
   pdfDoc.getPage(1).then(function (page) { 
 
-    debugTxt.textContent += ", displayPdf() found page: " + pdfUrl;
-    console.log("displayPdf() found page: " + pdfUrl);
+    debugTxt.textContent += ", displayPdf() found page";
+    console.log("displayPdf() found page");
 
     const viewport = page.getViewport({ scale: 1 });
     pdfCanvas.width = viewport.width;
@@ -141,7 +141,12 @@ testBtn2.addEventListener('click', async () => {
   try {
     debugTxt.textContent = "DisplayPdf clicked";
     console.log("DisplayPdf clicked");
-    const pdfUrl = "RxPad_2025.pdf";
+
+    const pdfUrl = new URL("RxPad_2025.pdf", window.location.href).href;
+
+    debugTxt.textContent += ", trying to fetch URL: " + pdfUrl;
+    console.log(", trying to fetch URL: " + pdfUrl);
+
     await displayPdf(pdfUrl);
   }
   catch (error) {
