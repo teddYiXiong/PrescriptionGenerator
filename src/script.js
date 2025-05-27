@@ -1,5 +1,5 @@
 /*----Initialize variables and Libraries----*/
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdf.worker.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("lib/pdf.worker.mjs", window.location.href).href;
 
 const nameInput = document.getElementById('nameInput');
 const dateInput = document.getElementById('dateInput');
